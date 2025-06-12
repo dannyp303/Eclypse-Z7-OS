@@ -14,6 +14,38 @@
 		view-port = <0x0170>;
 		drv-vbus;
 	};
+    reserved-memory {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        ranges;
+
+        dma0_buffer: dma0_buffer@10000000 {
+            reg = <0x10000000 0x00100000>; // 1 MB at 256 MB
+            no-map;
+            compatible = "shared-dma-pool";
+        };
+
+        dma1_buffer: dma1_buffer@30000000 {
+            reg = <0x30000000 0x00100000>; // 1 MB at 768 MB
+            no-map;
+            compatible = "shared-dma-pool";
+        };
+    };
+
+    udmabuf0: udmabuf@0 {
+        compatible = "ikwzm,u-dma-buf";
+        memory-region = <&dma0_buffer>;
+        size = <0x00100000>;
+        device-name = "udmabuf0";
+    };
+
+    udmabuf1: udmabuf@1 {
+        compatible = "ikwzm,u-dma-buf";
+        memory-region = <&dma1_buffer>;
+        size = <0x00100000>;
+        device-name = "udmabuf1";
+    };
+
 };
 
 &i2c1 {

@@ -67,11 +67,3 @@
     compatible = "generic-uio";
 };
 
-&amba_pl {
-    axidma_chrdev_0: axidma_chrdev@0 {
-        compatible = "xlnx,axidma-chrdev";
-        dmas = <&ZmodADC_0_axi_dma_0 0>, <&ZmodADC_1_axi_dma_0 0>;
-        dma-names = "rx_channel_0", "rx_channel_1";
-        index = <0>;
-    };
-};

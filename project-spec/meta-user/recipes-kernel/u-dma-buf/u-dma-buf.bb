@@ -8,6 +8,7 @@ SRC_URI = "file://u-dma-buf.c \
 S = "${WORKDIR}"
 
 inherit module
+MODULE_NAME = "u-dma-buf"
 
 # Install module into image's /lib/modules path
 do_install() {

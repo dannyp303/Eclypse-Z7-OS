@@ -10,5 +10,8 @@ SRC_URI += "file://0001-staging-add-xilinx-axi-dma.patch \
         file://0003-xlnx_axidma-import-updates.patch \
         file://0004-xlnx-axidma-do-not-expose-dma_addr.patch \
 	    "
+SRC_URI += "file://0005-add-u-dma-buf-module.patch"
+
+SRC_URI += "file://u-dma-buf/"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
